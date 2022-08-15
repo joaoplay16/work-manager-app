@@ -10,7 +10,7 @@ class DownloadApplication: Application() {
         super.onCreate()
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             val chanel = NotificationChannel(
-                "download_chanel",
+                "download_channel",
                 "File download",
                 NotificationManager.IMPORTANCE_HIGH
             )
