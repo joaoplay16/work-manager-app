@@ -9,7 +9,10 @@ import android.content.Intent
 class NotificationSchedulerAlarmManager {
 
     companion object {
-        fun scheduleNotification(context: Context) {
+        fun scheduleNotification(
+            context: Context,
+            interval: Long
+        ) {
             val alarmManager =
                 context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             val intent = Intent(
@@ -23,12 +26,10 @@ class NotificationSchedulerAlarmManager {
                 PendingIntent.FLAG_IMMUTABLE
             )
 
-            val intervalMillis = 15 * 1000 // 15 minutos em milissegundos
-
             alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis() + intervalMillis,
-                intervalMillis.toLong(),
+                System.currentTimeMillis() + interval,
+                interval,
                 pendingIntent
             )
         }

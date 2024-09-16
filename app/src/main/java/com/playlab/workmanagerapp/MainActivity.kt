@@ -38,11 +38,14 @@ class MainActivity : ComponentActivity() {
 
         NotificationWorker.scheduleWork(applicationContext)
 
-        NotificationSchedulerAlarmManager.scheduleNotification(applicationContext)
+        NotificationSchedulerAlarmManager.scheduleNotification(
+            applicationContext,
+            60 * 60 * 1000
+        )
 
         NotificationJobScheduler.scheduleNotification(
             applicationContext,
-            15 * 60 * 1000
+            60 * 60 * 1000
         )
 
         val downloadRequest = OneTimeWorkRequestBuilder<DownloadWorker>()
